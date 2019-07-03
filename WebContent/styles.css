@@ -1,0 +1,17 @@
+@charset "ISO-8859-1";
+
+h1 {
+	color: blue;
+	font-family: arial;
+}
+
+h3 {
+	color: red;
+	font-family: arial;
+	font-size:16pt;
+}
+
+body {
+	font-family: verdana;
+	font-size: 12pt;
+}

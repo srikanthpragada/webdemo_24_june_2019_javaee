@@ -11,8 +11,12 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/marks")
 public class MarksServlet extends HttpServlet {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		 doGet(request,response);
+	}
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		 System.out.println(request.getClass());
          int marks = Integer.parseInt(request.getParameter("marks"));
          String grade = "Fail";
          if (marks  > 80)

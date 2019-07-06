@@ -10,6 +10,7 @@
 <body>
 
 	<%
+	    Class.forName("oracle.jdbc.driver.OracleDriver");
 		Connection con = DriverManager.getConnection
 		        ("jdbc:oracle:thin:@localhost:1521:XE", "hr", "hr");
 		PreparedStatement ps = con.prepareStatement

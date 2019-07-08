@@ -10,6 +10,8 @@
 <body>
 
 	<h1>List Of Books</h1>
+	<a href="add.jsp">Add Book</a>
+	<p></p>
 	<table style="width: 100%" cellpadding='5px' border="1">
 		<tr style="background-color: red; color: white">
 			<th>Id</th>
@@ -23,7 +25,7 @@
 			crs.setUrl("jdbc:oracle:thin:@localhost:1521:XE");
 			crs.setUsername("hr");
 			crs.setPassword("hr");
-			crs.setCommand("select * from june24_books");
+			crs.setCommand("select * from june24_books order by id");
 			crs.execute();
 			while (crs.next()) {
 		%>
@@ -32,10 +34,10 @@
 			<td><%=crs.getString(2)%></td>
 			<td><%=crs.getString(3)%></td>
 			<td><%=crs.getInt(4)%></td>
-			<td>
+			<td style="text-align:center">
 			 <% 
-			   out.println("<a href='delete.jsp?id=" + crs.getInt(1) + "'>delete</a>"); 
-			   out.println("<a href='edit.jsp?id=" + crs.getInt(1) + "'>edit</a>");
+			   out.println("<a href='delete.jsp?id=" + crs.getInt(1) + "'>Delete</a>&nbsp;");
+			   out.println("<a href='edit.jsp?id=" + crs.getInt(1) + "'>Edit</a>");
 			 %>
 		    </td>
 		</tr>

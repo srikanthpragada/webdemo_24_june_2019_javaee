@@ -8,10 +8,8 @@
 <title>List Of Books</title>
 </head>
 <body>
-
+    <%@include file="header.html" %>
 	<h1>List Of Books</h1>
-	<a href="add.jsp">Add Book</a>
-	<p></p>
 	<table style="width: 100%" cellpadding='5px' border="1">
 		<tr style="background-color: red; color: white">
 			<th>Id</th>

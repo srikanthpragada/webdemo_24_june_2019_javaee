@@ -7,7 +7,8 @@
 <title>Add Book</title>
 </head>
 <body>
-
+    <%@include file="header.html" %>
+    
 	<h1>Add Book</h1>
 	<form action="add.jsp" method="post">
 		Title <br /> <input type="text" name='title' value="${param.title}" />
@@ -21,8 +22,7 @@
 		<input type="submit" value="Add Book" />
 	</form>
 
-	<p></p>
-	<a href="list.jsp">List of Books</a>
+	<p></p> 
 
 	<%
 		String title = request.getParameter("title");

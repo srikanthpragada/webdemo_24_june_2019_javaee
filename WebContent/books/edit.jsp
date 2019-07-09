@@ -8,6 +8,7 @@
 <title>Edit Book</title>
 </head>
 <body>
+    <%@include file="header.html" %>
 	<h1>Edit Book</h1>
 	<%
 		String id = request.getParameter("id");
@@ -40,9 +41,7 @@
 		<p></p>
 		<input type="submit" value="Update Book" />
 	</form>
-
-	<p></p>
-	<a href="list.jsp">List of Books</a>
+ 
 
 
 </body>

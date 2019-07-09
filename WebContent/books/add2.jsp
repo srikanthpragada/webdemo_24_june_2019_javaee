@@ -9,7 +9,7 @@
 <body>
 
 	<h1>Add Book</h1>
-	<form action="add.jsp" method="post">
+	<form action="add2.jsp" method="post">
 		Title <br /> <input type="text" name='title' value="${param.title}" />
 
 		<p></p>
@@ -27,21 +27,20 @@
 	<%
 		String title = request.getParameter("title");
 		if (title == null)
-			return; // exit JSP 
+			return; // exit JSP
+	%>
 
-		
+	<jsp:useBean class="beans.Book" scope="page" id="book"></jsp:useBean>
+	<jsp:setProperty property="*" name="book" />
 
+	<%
 		try {
-			
-			out.println("<h2>Book has been added successfully</h2>");
+			book.addBook();
+			out.println("<h2>" + book.getTitle() + " has been added successfully</h2>");
 		} catch (Exception ex) {
 			System.out.println(ex);
 			out.println("<h2>Could not add book due to error!</h2>");
 		}
 	%>
-
-
-
-
 </body>
 </html>

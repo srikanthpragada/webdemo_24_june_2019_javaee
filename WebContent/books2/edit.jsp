@@ -8,7 +8,7 @@
 <title>Edit Book</title>
 </head>
 <body>
-    <%@include file="header.html" %>
+    <%@include file="header.jsp" %>
 	<h1>Edit Book</h1>
 	<%
 		String id = request.getParameter("id");

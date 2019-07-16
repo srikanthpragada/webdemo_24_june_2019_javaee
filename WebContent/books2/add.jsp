@@ -7,7 +7,7 @@
 <title>Add Book</title>
 </head>
 <body>
-    <%@include file="header.html" %>
+    <%@include file="header.jsp" %>
     
 	<h1>Add Book</h1>
 	<form action="add.jsp" method="post">

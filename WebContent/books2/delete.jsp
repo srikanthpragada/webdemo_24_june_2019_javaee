@@ -11,7 +11,7 @@
 <title>Delete Book</title>
 </head>
 <body>
-	<%@include file="header.html"%>
+	<%@include file="header.jsp"%>
 	<h1>Delete Book</h1>
 
 	<sql:setDataSource var="oracle"

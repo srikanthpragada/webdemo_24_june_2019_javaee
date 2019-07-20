@@ -3,22 +3,65 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Ajax Demo</title>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script>
-  function getDateTime() {
-	 // ajax request 
-	 $.get("now.jsp",null,showDateTime);
-  }
-  function showDateTime(response) {
-	 $("#now").html(response);
-  }
-  
+	function getDateTime() {
+		// ajax request 
+		$.get("now.jsp", null, showDateTime);
+	}
+	function showDateTime(response) {
+		$("#now").html(response);
+	}
+
+	function getEmployeeName() {
+		// ajax request 
+		$.get("get_emp_name.jsp?empid=" + $("#empid").val(), null, showEmpName);
+	}
+
+	function showEmpName(response) {
+		$("#empname").text(response);
+	}
+
+	function getEmployees() {
+		// ajax request 
+		$.getJSON("employeesByJob?jobid=" + $("#jobid").val(), null,
+				showEmployees);
+	}
+
+	function showEmployees(employees) {
+
+		$("#employees").html("");
+		
+		if (employees.length == 0) {
+			alert("Sorry! No employees found!");
+			return;
+		}
+		
+		output = "";
+		for (i = 0; i < employees.length; i++)
+			output += "<li>" + employees[i].name + "," + employees[i].salary
+					+ "</li>";
+
+		$("#employees").html(output);
+	}
 </script>
 </head>
 <body>
+	<h1>Ajax Demo</h1>
+	<button onclick="getDateTime()">Show Date and Time</button>
+	<h1 id="now"></h1>
+	<hr />
 
-<button onclick="getDateTime()">Show Date and Time</button>
-<h1 id="now"></h1>
+	Employee Id :
+	<input type="number" id="empid" onblur="getEmployeeName()" />
+	<span id="empname"></span>
+	<hr />
 
+	Job Id :
+	<input type="text" id="jobid" />
+	<button onclick="getEmployees()">Employees</button>
+	<ul id="employees">
+	</ul>
 </body>
 </html>
